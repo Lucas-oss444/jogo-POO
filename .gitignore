@@ -1,0 +1,33 @@
+# Build
+target/
+out/
+*.class
+
+# Banco, saves e logs gerados ao jogar
+*.db
+*.db-journal
+*.sqlite
+*.log
+
+# Material que não vai para o repositório público
+privado/
+DESIGN.md
+
+# Credenciais e configurações locais
+.env
+.env.*
+*.key
+*.pem
+*.jks
+.claude/settings.local.json
+
+# IDE e sistema
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+Thumbs.db
+desktop.ini
+.DS_Store
