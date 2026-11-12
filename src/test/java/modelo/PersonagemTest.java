@@ -81,6 +81,18 @@ class PersonagemTest {
     }
 
     @Test
+    void restaurarVidaVoltaAoValorInicial() {
+        Personagem boneco = new Boneco();
+        boneco.receberDano(VIDA);
+
+        boneco.restaurarVida();
+
+        assertEquals(VIDA, boneco.getVida());
+        assertEquals(VIDA, boneco.getVidaMaxima());
+        assertTrue(boneco.estaVivo());
+    }
+
+    @Test
     void atacarCausaDanoNoAlvoENaoNoAtacante() {
         Personagem atacante = new Boneco();
         Personagem alvo = new Boneco();

@@ -3,11 +3,13 @@ package modelo;
 public abstract class Personagem {
 
     private final String nome;
+    private final int vidaMaxima;
     private final int ataque;
     private int vida;
 
     protected Personagem(String nome, int vida, int ataque) {
         this.nome = nome;
+        this.vidaMaxima = vida;
         this.vida = vida;
         this.ataque = ataque;
     }
@@ -18,6 +20,10 @@ public abstract class Personagem {
 
     public int getVida() {
         return vida;
+    }
+
+    public int getVidaMaxima() {
+        return vidaMaxima;
     }
 
     public int getAtaque() {
@@ -41,5 +47,9 @@ public abstract class Personagem {
         int perdido = Math.min(dano, vida);
         vida -= perdido;
         return perdido;
+    }
+
+    public void restaurarVida() {
+        vida = vidaMaxima;
     }
 }

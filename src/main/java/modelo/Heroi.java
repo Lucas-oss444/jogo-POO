@@ -15,8 +15,16 @@ public abstract class Heroi extends Personagem {
         return alvo.receberDano(DANO_FORTE);
     }
 
+    public int atacar(Personagem alvo, TipoAtaque tipo) {
+        return tipo == TipoAtaque.FORTE ? atacarForte(alvo) : atacar(alvo);
+    }
+
     /** Chave do nome do ataque nos arquivos de texto, não o texto em si. */
     public abstract String chaveAtaqueFraco();
 
     public abstract String chaveAtaqueForte();
+
+    public String chaveAtaque(TipoAtaque tipo) {
+        return tipo == TipoAtaque.FORTE ? chaveAtaqueForte() : chaveAtaqueFraco();
+    }
 }

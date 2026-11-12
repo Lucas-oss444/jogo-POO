@@ -126,14 +126,18 @@ Rotina de cada parte:
 
 ## Estado atual
 
-Parte 0 pronta, faltando só o primeiro commit. Parte 1 (batalha no terminal) ainda não começou. Em `modelo`:
+Parte 0 concluída e publicada em `https://github.com/Lucas-oss444/jogo-POO` (repositório público; `DESIGN.md` fica fora dele pelo `.gitignore`). Parte 1 (batalha no terminal) escrita. Em `modelo`:
 
 - `Personagem` (abstrata): `nome`, `vida`, `ataque`, getters, `estaVivo()`, `receberDano(int)` e `atacar(Personagem)`. Os dois últimos devolvem o dano realmente sofrido; a vida nunca fica negativa.
 - `Heroi` (abstrata, estende `Personagem`): concentra `VIDA_INICIAL`, `DANO_FRACO` e `DANO_FORTE`, iguais para toda classe de herói. `atacar` é o ataque fraco e `atacarForte` o forte. Os valores (100, 10, 25) são provisórios.
 - `Guerreiro`, `Mago`: estendem `Heroi` e só definem as chaves de texto dos nomes dos ataques (`ataque.guerreiro.fraco` etc.). Os textos estão em `src/main/resources/textos_pt.properties`.
 - `Inimigo`: estende `Personagem`, recebe nome, vida e ataque no construtor.
-- `app.Main`: vazia. Deve criar um herói e um inimigo e rodar a batalha em turnos até um morrer.
+- `TipoAtaque`: enum `FRACO`/`FORTE`.
+- `Batalha`: `registrarAcerto(tipo)` (herói ataca), `registrarErro(tipo)` (inimigo ataca; no forte o dano dobra), `terminou`, `heroiVenceu`, `heroiPerdeu`, `reiniciar`. Turno em batalha encerrada lança `IllegalStateException`.
+- `app.Main`: duelo no terminal contra um inimigo de treino. O acerto ainda é simulado por uma pergunta "s/n", que a parte 2 troca pela questão.
 
-Testes: `PersonagemTest` e `HeroiTest`, 16 testes passando com `mvn test`. Repositório git iniciado, ainda sem commits.
+Testes: `PersonagemTest`, `HeroiTest`, `BatalhaTest` e `MainTest`, 31 testes passando com `mvn test`.
+
+Parte 1 escrita e testada, aguardando minha revisão e o commit.
 
 Atualize esta seção quando uma etapa for concluída.
